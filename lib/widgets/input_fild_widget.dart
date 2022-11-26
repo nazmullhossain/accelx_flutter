@@ -15,7 +15,10 @@ class InputTextFieldWidget extends StatelessWidget {
         decoration: InputDecoration(
             alignLabelWithHint: true,
             focusedBorder: UnderlineInputBorder(
-                borderSide: BorderSide(color: Colors.black)),
+
+            ),
+            // focusedBorder: UnderlineInputBorder(
+            //     borderSide: BorderSide(color: Colors.black)),
             fillColor: Colors.white54,
             hintText: hintText,
             hintStyle: TextStyle(color: Colors.grey),

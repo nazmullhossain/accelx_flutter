@@ -31,19 +31,19 @@ class _AuthScreenState extends State<AuthScreen> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    SizedBox(
+                    const SizedBox(
                       height: 30,
                     ),
                     Container(
-                      child: Text(
-                        'WELCOME',
+                      child: const Text(
+                        'Accelx',
                         style: TextStyle(
                             fontSize: 30,
                             color: Colors.black,
                             fontWeight: FontWeight.w400),
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 20,
                     ),
                     Row(
@@ -54,14 +54,14 @@ class _AuthScreenState extends State<AuthScreen> {
                           onPressed: () {
                             isLogin.value = false;
                           },
-                          child: Text('Register'),
+                          child: const Text('Register'),
                         ),
                         MaterialButton(
                           color: isLogin.value ? Colors.white : Colors.amber,
                           onPressed: () {
                             isLogin.value = true;
                           },
-                          child: Text('Login'),
+                          child: const Text('Login'),
                         ),
                       ],
                     ),
@@ -81,17 +81,17 @@ class _AuthScreenState extends State<AuthScreen> {
     return Column(
       children: [
         InputTextFieldWidget(registerationController.nameController, 'name'),
-        SizedBox(
+        const SizedBox(
           height: 20,
         ),
         InputTextFieldWidget(
             registerationController.emailController, 'email address'),
-        SizedBox(
+        const SizedBox(
           height: 20,
         ),
         InputTextFieldWidget(
             registerationController.passwordController, 'password'),
-        SizedBox(
+        const SizedBox(
           height: 20,
         ),
         SubmitButton(
@@ -105,15 +105,17 @@ class _AuthScreenState extends State<AuthScreen> {
   Widget loginWidget() {
     return Column(
       children: [
-        SizedBox(
+        const SizedBox(
           height: 20,
         ),
         InputTextFieldWidget(loginController.emailController, 'email address'),
-        SizedBox(
+        const SizedBox(
           height: 20,
         ),
-        InputTextFieldWidget(loginController.passwordController, 'password'),
-        SizedBox(
+        InputTextFieldWidget(loginController.passwordController, 'password'
+
+        ),
+        const SizedBox(
           height: 20,
         ),
         SubmitButton(
