@@ -4,8 +4,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:http/http.dart' as http;
 import 'package:jiffy/jiffy.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+import 'auth_page.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -15,6 +20,7 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  final Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
   @override
   void initState() {
     _determinePosition();
@@ -93,7 +99,23 @@ class _HomeState extends State<Home> {
       var tempFeels = weatherMap!["main"]["feels_like"] - 273.15;
 
       return SafeArea(
+
+
+
         child: Scaffold(
+          appBar: AppBar(
+              actions: [
+                TextButton(
+                    onPressed: () async {
+                      final SharedPreferences? prefs = await _prefs;
+                      prefs?.clear();
+                      Get.offAll(AuthScreen());
+                    },
+                    child: Text(
+                      'logout',
+                      style: TextStyle(color: Colors.white),
+                    ))
+              ]),
           backgroundColor: Color.fromARGB(255, 173, 203, 255),
           body: weatherMap == null
               ? Center(child: CircularProgressIndicator())
